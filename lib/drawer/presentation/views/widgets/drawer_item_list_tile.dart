@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:uipractice/drawer/models/drawer_item_model.dart';
+import 'package:uipractice/drawer/data/models/drawer_item_model.dart';
 
-import '../../../core/utilis/functions.dart';
-import '../../../core/utilis/styles.dart';
+import '../../../../core/utilis/functions.dart';
+import '../../../../core/utilis/styles.dart';
 
 class DrawerItemListTile extends StatelessWidget {
   const DrawerItemListTile({
@@ -19,13 +19,13 @@ class DrawerItemListTile extends StatelessWidget {
     return ListTile(
       leading: Image.asset(drawerItemModel.leadingImage),
       title: FittedBox(
-        alignment: Alignment.centerLeft,
+        alignment: Alignment.topLeft,
         fit: BoxFit.scaleDown,
         child: Text(drawerItemModel.title,
-          style:getTextStyle(isActive: isActive)),
+          style:getTextStyle(context,isActive: isActive)),
       ),
       trailing:isActive?Container(
-        color: Colors.grey,
+        color: const Color(0xFF4EB7F2),
         width: 3.48,
       ) :null
 

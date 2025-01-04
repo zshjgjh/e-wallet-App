@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:uipractice/tablet_layout/views/widgets/more_details_section.dart';
 
-import '../../../core/utilis/styles.dart';
+
+import '../../../../core/utilis/styles.dart';
+
 import 'custom_button.dart';
 import 'custom_text_field.dart';
 import 'drop_down_menue.dart';
+import 'more_details_section.dart';
 
 class SendMoneyForm extends StatefulWidget {
   const SendMoneyForm({
@@ -70,7 +72,7 @@ class _SendMoneyFormState extends State<SendMoneyForm> {
                     });
                   },
                   text: 'Add More Details',
-                  style: Styles.semiBold18.copyWith(
+                  style: Styles.semiBold18(context).copyWith(
                       color: const Color(0xFF4EB7F2)),
                   backgroundColor: Colors.white,)),
             const SizedBox(width: 24,),
@@ -79,7 +81,7 @@ class _SendMoneyFormState extends State<SendMoneyForm> {
                 child: CustomButton(
                   onPressed: (){},
                   text: 'Send Money',
-                  style: Styles.semiBold18,
+                  style: Styles.semiBold18(context),
                   backgroundColor: const Color(0xFF4EB7F2),)),
 
 

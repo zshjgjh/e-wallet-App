@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/utilis/app_images.dart';
-import '../../../core/utilis/styles.dart';
-import '../../../drawer/data/models/name_model.dart';
-import '../../../drawer/presentation/views/widgets/name_list_tile.dart';
+import '../../../../core/utilis/app_images.dart';
+import '../../../../core/utilis/styles.dart';
+import '../../../../drawer/data/models/name_model.dart';
+import '../../../../drawer/presentation/views/widgets/name_list_tile.dart';
 
 class LatestTransaction extends StatelessWidget {
   const LatestTransaction({
@@ -30,9 +30,9 @@ class LatestTransaction extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Align(
+         Align(
           alignment: Alignment.topLeft,
-            child: Text('Latest Transaction', style: Styles.medium16,)),
+            child: Text('Latest Transaction', style: Styles.medium16(context),)),
         const SizedBox(height: 20,),
         SizedBox(
           height: 100,

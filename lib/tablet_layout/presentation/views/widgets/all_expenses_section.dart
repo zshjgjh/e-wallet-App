@@ -2,49 +2,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:uipractice/core/utilis/app_images.dart';
-import 'package:uipractice/custom_container.dart';
-import 'package:uipractice/tablet_layout/views/widgets/drop_down_menue.dart';
+import 'package:uipractice/core/utilis/size_config.dart';
+import 'package:uipractice/tablet_layout/presentation/views/widgets/three_expenses_containers.dart';
 
-import '../../../core/utilis/styles.dart';
-import '../../data/models/expenses_model.dart';
+import 'package:uipractice/tablet_layout/presentation/views/widgets/drop_down_menue.dart';
+import 'package:uipractice/tablet_layout/presentation/views/widgets/expenses_page_view.dart';
+
+import '../../../../core/utilis/styles.dart';
+import '../../../data/models/expenses_model.dart';
 import 'expenses_container.dart';
 
-class AllExpensesSection extends StatefulWidget {
+class AllExpensesSection extends StatelessWidget {
   const AllExpensesSection({
     super.key,
   });
   @override
-  State<AllExpensesSection> createState() => _AllExpensesSectionState();
-}
-
-class _AllExpensesSectionState extends State<AllExpensesSection> {
-
-  int activeIndex=0;
-
-  final List<ExpensesModel> expenses=const [
-   ExpensesModel(image: AppImages.balance,
-      title: 'Balance',
-      date: 'April 2024',
-      money: r'$20,226'),
-   ExpensesModel(image: AppImages.incom,
-      title: 'Income',
-      date: 'April 2024',
-      money: r'$5,226'),
-   ExpensesModel(image: AppImages.expenses,
-      title: 'Expenses',
-      date: 'April 2024',
-      money: r'$1,786')
-  ];
-
-  @override
   Widget build(BuildContext context) {
+    double width=MediaQuery.of(context).size.width;
     return   Container(
-      height: 350,
+      height: 360,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
         color: Colors.white
       ),
-      child: Padding(
+      child:  Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
@@ -53,7 +34,7 @@ class _AllExpensesSectionState extends State<AllExpensesSection> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('All Expenses',style: Styles.semiBold20,),
+                  Text('All Expenses',style: Styles.semiBold20(context),),
 
                   DropDownMenue(
                     value1: 'Monthly',
@@ -63,30 +44,14 @@ class _AllExpensesSectionState extends State<AllExpensesSection> {
               ),
             ),
 
-           Expanded(
+           width<=SizeConfig.mobileBP?const ExpensesPageView():
+           const Expanded(
              flex: 3,
-             child: Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children:
-                 expenses.asMap().entries.map((e) {
-                   int index=e.key;
-                   var item=e.value;
-                   return GestureDetector(
-                       onTap: () {
-                         if(activeIndex!= index) {
-                           activeIndex = index;
-                           setState(() {});
-                         }},
-                       child: Expanded(
-                         child: ExpensesContainer(
-                             expensesModel: item,
-                             index: index,
-                             isActive: activeIndex == index?true:false),
-                       ));},).toList(),
-                     ),),],),
-
-        ),
-      );
+               child: ThreeExpensesContainers())
+       ],
+    ),
+      ),
+    );
   }
 }
 

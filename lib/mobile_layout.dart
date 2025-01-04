@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:uipractice/tablet_layout/presentation/views/widgets/all_expenses_section.dart';
+import 'package:uipractice/tablet_layout/presentation/views/widgets/send_money_section&latest_section.dart';
 
-import 'mobile_custom_grid_view.dart';
-import 'custom_sliver_list.dart';
+import 'desktop_layout/presentation/views/desktop_right_section.dart';
 
 class MobileLayout extends StatelessWidget {
   const MobileLayout({
@@ -10,19 +11,19 @@ class MobileLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: SizedBox(height: 8,),
+    return const SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            AllExpensesSection(),
+            SizedBox(height: 10,),
+            SendMoneyandLatestTransactionSection(),
+            SizedBox(height: 10,),
+            DesktopRightSection()
+          ],
         ),
-        CustomGridView(),
-
-        SliverToBoxAdapter(
-          child: SizedBox(height: 8,),
-        ),
-
-        CustomSliverList()
-      ],
+      ),
     );
   }
 }

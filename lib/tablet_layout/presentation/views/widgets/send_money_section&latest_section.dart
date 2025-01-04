@@ -9,10 +9,9 @@ import 'package:uipractice/tablet_layout/presentation/views/widgets/send_money_f
 
 
 
-class SendMoneySection extends StatelessWidget {
-  const SendMoneySection({
+class SendMoneyandLatestTransactionSection extends StatelessWidget {
+  const SendMoneyandLatestTransactionSection({
     super.key,
-
   });
 
   @override
@@ -35,8 +34,7 @@ class SendMoneySection extends StatelessWidget {
 
             SizedBox(height: 20,),
 
-
-           Divider(
+            Divider(
              thickness: 2,
            color: Color(0xFFF1F1F1),),
 

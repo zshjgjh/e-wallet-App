@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utilis/styles.dart';
+import '../../../../core/utilis/styles.dart';
+
 
 class SendMoneySectionHeader extends StatelessWidget {
   const SendMoneySectionHeader({
@@ -13,7 +14,7 @@ class SendMoneySectionHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text('Quick Invoices', style: Styles.semiBold20,),
+         Text('Quick Invoices', style: Styles.semiBold20(context),),
         IconButton(
             onPressed: () {},
             icon: CircleAvatar(

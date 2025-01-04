@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/utilis/app_images.dart';
-import '../../models/drawer_item_model.dart';
+import '../../../../core/utilis/app_images.dart';
+import '../../../data/models/drawer_item_model.dart';
 import 'drawer_item_list_tile.dart';
 
 class DrawerItemsListView extends StatefulWidget {
@@ -36,7 +36,7 @@ class _DrawerItemsListViewState extends State<DrawerItemsListView> {
              if(currentIndex!=index ){
                currentIndex=index;
                setState(() {});
-             };},
+             }},
               child: DrawerItemListTile(drawerItemModel: items[index],
                 isActive: currentIndex==index?true:false,));
           },),);

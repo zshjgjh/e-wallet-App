@@ -14,7 +14,7 @@ class ThreeExpensesContainers extends StatefulWidget {
 }
 
 class _ThreeExpensesContainersState extends State<ThreeExpensesContainers> {
-  
+
   int activeIndex=0;
 
   final List<ExpensesModel> expenses=const [
@@ -34,27 +34,24 @@ class _ThreeExpensesContainersState extends State<ThreeExpensesContainers> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 3,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children:
-        expenses.asMap().entries.map((e) {
-          int index=e.key;
-          var item=e.value;
-          return GestureDetector(
-              onTap: () {
-                if(activeIndex!= index) {
-                  activeIndex = index;
-                  setState(() {});
-                }},
-              child: Expanded(
-                child: ExpensesContainer(
-                    expensesModel: item,
-                    index: index,
-                    isActive: activeIndex == index?true:false),
-              ));},).toList(),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children:
+      expenses.asMap().entries.map((e) {
+        int index=e.key;
+        var item=e.value;
+        return GestureDetector(
+            onTap: () {
+              if(activeIndex!= index) {
+                activeIndex = index;
+                setState(() {});
+              }},
+            child: Expanded(
+              child: ExpensesContainer(
+                  expensesModel: item,
+                  index: index,
+                  isActive: activeIndex == index?true:false),
+            ));},).toList(),
     );
 
   }

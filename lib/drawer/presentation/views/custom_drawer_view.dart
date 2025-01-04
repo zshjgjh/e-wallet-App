@@ -3,29 +3,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uipractice/core/utilis/app_images.dart';
-import 'package:uipractice/drawer/models/drawer_item_model.dart';
-import 'package:uipractice/drawer/models/name_model.dart';
-import 'package:uipractice/drawer/views/widgets/drawer_item_list_tile.dart';
-import 'package:uipractice/drawer/views/widgets/drawer_items_list_view.dart';
-import 'package:uipractice/drawer/views/widgets/name_section.dart';
+import 'package:uipractice/drawer/data/models/drawer_item_model.dart';
+
+import 'package:uipractice/drawer/presentation/views/widgets/drawer_item_list_tile.dart';
+import 'package:uipractice/drawer/presentation/views/widgets/drawer_items_list_view.dart';
+import 'package:uipractice/drawer/presentation/views/widgets/name_list_tile.dart';
+
+
+import '../../data/models/name_model.dart';
 
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
-    super.key, required this.nameModel,
+    super.key,
   });
-  final NameModel nameModel;
+  final NameModel nameModel= const NameModel(name: 'Zuhor Saeed',
+      email:'zuhorsaeed1993@gmail.com' ,
+      avatar: AppImages.logo);
   @override
   Widget build(BuildContext context) {
-    return   Drawer(
+    return    Drawer(
       surfaceTintColor: Colors.white,
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
 
             child: Padding(
-               padding: const EdgeInsets.all(12.0),
-               child: NameSection(nameModel: nameModel,),
+               padding: const EdgeInsets.all(4.0),
+               child: NameListTile(nameModel: nameModel),
              ),
           ),
 

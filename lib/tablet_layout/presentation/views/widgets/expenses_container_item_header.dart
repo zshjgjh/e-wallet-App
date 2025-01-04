@@ -24,6 +24,7 @@ class ExpensesContainerItemHeader extends StatelessWidget {
             child: Image.asset(expensesModel.image,
               color:isActive?Colors.white: const Color(0xFF4EB7F2),)),
 
+
          Icon(Icons.arrow_forward_ios,
           color:isActive?Colors.white: const Color(0xFF064061),)
       ],
